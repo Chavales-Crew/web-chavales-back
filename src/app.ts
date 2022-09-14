@@ -10,6 +10,7 @@ import { createServer } from '@config/express';
 import { AddressInfo } from 'net';
 import http from 'http';
 import { logger } from '@middleware/logger';
+import { setupRoutes } from './routes';
 
 const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || '5000';
@@ -33,6 +34,8 @@ async function startServer() {
       });
     });
   });
+
+  setupRoutes(app, server);
 }
 
 startServer();

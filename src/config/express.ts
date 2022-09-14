@@ -12,10 +12,6 @@ const createServer = (): express.Application => {
 
   app.disable('x-powered-by');
 
-  app.get('/health', (_req, res) => {
-    res.send('OK');
-  });
-
   app.use(errorHandler);
 
   return app;
